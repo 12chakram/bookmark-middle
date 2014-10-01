@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.codehaus.jackson.map.ObjectMapper;
+import org.json.JSONObject;
 
 import com.bookmarks.domain.BookMark;
 import com.bookmarks.services.BookMarkService;
@@ -40,9 +41,15 @@ public class BookMarkServlet extends HttpServlet {
 		
 		String complteBookMark = mapper.writeValueAsString(bookmark);
 		
-		System.out.println(complteBookMark);
+		JSONObject jsonObject = new JSONObject(complteBookMark);
 		
-		response.getWriter().write(complteBookMark);
+		 JSONObject jsonKey = new JSONObject();
+		 jsonKey.put("bookmark", jsonObject);
+		
+		
+		
+		System.out.println(jsonKey.toString());
+		response.getWriter().write(jsonKey.toString());
 		response.getWriter().flush();
 		response.getWriter().close();
 		
