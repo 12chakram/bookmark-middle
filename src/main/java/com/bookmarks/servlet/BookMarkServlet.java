@@ -46,6 +46,7 @@ public class BookMarkServlet extends HttpServlet {
 		 JSONObject jsonKey = new JSONObject();
 		 jsonKey.put("bookmark", jsonObject);
 	
+		 System.out.println(jsonKey.toString());
 		 
 		response.getWriter().write(jsonKey.toString());
 		response.getWriter().flush();
