@@ -17,8 +17,9 @@ public class BookMarkDaoImpl implements BookMarkDao{
 	@Override
 	public BookMark getbookMark(long bookMarkID) throws Exception {
 		// TODO Auto-generated method stub
+		ConnectionFactory  connectionFactory = new ConnectionFactory();
 		try{
-			connection = ConnectionFactory.getConnection();
+			connection = connectionFactory.getConnection();
 		}catch(Exception exception){
 			throw exception;
 		}
